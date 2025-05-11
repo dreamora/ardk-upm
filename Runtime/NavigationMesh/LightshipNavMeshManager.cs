@@ -43,7 +43,7 @@ namespace Niantic.Lightship.AR.NavigationMesh
         [Header("Scan Settings")]
         [Tooltip("How long (in seconds) to wait before scanning the environment again to update the NavMesh")]
         [SerializeField]
-        private float _scanInterval = 0.1f;
+        protected float _scanInterval = 0.1f;
 
         [Tooltip("Size of the area to scan (width in meters of a square centered 1 meter in front of the player)")]
         [SerializeField]
@@ -62,7 +62,7 @@ namespace Niantic.Lightship.AR.NavigationMesh
         private LightshipNavMesh _lightshipNavMesh;
         private ModelSettings _settings;
 
-        private float _lastScan;
+        protected float _lastScan;
 
         /// <summary>
         /// A reference to the <c>LightshipNavMesh</c> that is being managed by this LightshipNavMeshManager
@@ -72,7 +72,7 @@ namespace Niantic.Lightship.AR.NavigationMesh
             get { return _lightshipNavMesh; }
         }
 
-        private void Start()
+        protected void Start()
         {
             //create my LightshipNavMesh
             _settings = new ModelSettings
@@ -86,7 +86,7 @@ namespace Niantic.Lightship.AR.NavigationMesh
             _lightshipNavMesh = new LightshipNavMesh(_settings, _visualise);
         }
 
-        private void UpdateNavMesh()
+        protected void UpdateNavMesh()
         {
             //tell LightshipNavMesh to scan where the player is.
             var cameraTransform = _camera.transform;

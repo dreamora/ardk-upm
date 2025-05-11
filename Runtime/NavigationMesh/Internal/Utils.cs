@@ -253,7 +253,7 @@ namespace Niantic.Lightship.AR.NavigationMesh
     }
 
     /// Converts a node on the LightshipNavMesh to its corresponding world position.
-    internal static Vector3 GridNodeToPosition(GridNode node, float tileSize)
+    public static Vector3 GridNodeToPosition(GridNode node, float tileSize)
     {
       return TileToPosition(node.Coordinates, node.Elevation, tileSize);
     }
